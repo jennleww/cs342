@@ -8,7 +8,7 @@ enum BloodType: String, CustomStringConvertible,  CaseIterable  {
     case ABPos = "AB+"
     case ABNeg = "AB-"
 
-    /// A human-readable description of the blood type.
+    
     var description: String {
         return self.rawValue
     }

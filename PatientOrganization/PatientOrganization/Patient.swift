@@ -49,6 +49,17 @@ struct Patient {
             .sorted { $0.date < $1.date }
     }
     
+    func expiredMed() -> [Medication] {
+        return medications
+            .filter { !$0.isCurrent() }
+            .sorted { $0.date < $1.date }
+    }
+    
+    func BMI() -> Double {
+        let kgweight = weight * 0.453592
+        return kgweight / pow(height / 100, 2)// assume height in cm
+    }
+    
     func getBloodType() -> String {
         if let bloodType = bloodType {
             return bloodType.description

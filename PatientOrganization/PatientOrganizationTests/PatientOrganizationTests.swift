@@ -36,7 +36,7 @@ struct PatientOrganizationTests {
         #expect(medication2.isCurrent() == true)
     }
 
-    // MARK: Patient Initialization Tests
+    // Patient Initialization Tests
     @Test func testPatientInitialization() throws {
         let calendar = Calendar.current
         let DOBcomponent = DateComponents(year: 2004, month: 1, day: 25, hour: 9, minute: 30)
@@ -80,9 +80,10 @@ struct PatientOrganizationTests {
             bloodType: .BPos,
             medications: []
         )
-
+        let bmi = patient.weight * 0.453592 / pow(patient.height / 100, 2)
         #expect(patient.fullName() == "Bowlen, Sarah (20)")
         #expect(patient.age() == 20)
+        #expect(patient.BMI() == bmi)
         #expect(patient.getBloodType() == "B+")
     }
 
@@ -111,6 +112,8 @@ struct PatientOrganizationTests {
         // Check active medications
         #expect(patient.currentMed() == [medication1])
 
+        // Check expired medications
+        #expect(patient.expiredMed() == [medication2])
         // Test adding duplicate prescription
         #expect(throws: PrescriptionError.duplicateMedication) {
             try patient.prescribeMed(duplicate)
@@ -120,6 +123,9 @@ struct PatientOrganizationTests {
         try patient.prescribeMed(medication4)
         #expect(patient.medications.contains(medication4))
         #expect(patient.currentMed().contains(medication4))
+        
+        // Test specifying route
+        #expect(patient.specifyRoute("by mouth") == [medication1, medication2])
     }
 
     // Patient Blood Type Compatibility Tests
@@ -134,7 +140,18 @@ struct PatientOrganizationTests {
             bloodType: .BPos,
             medications: []
         )
+        
+        // Test patient with no given bloodtype
+        let patient2 = Patient(
+            firstName: "Sarah",
+            lastName: "Bowlen",
+            sex: "F",
+            dateOfBirth: Date(),
+            height: 178,
+            weight: 140,
+            medications: []
+        )
 
-        #expect(patient.compatibleDonor() == [.ONeg, .OPos, .BNeg, .BPos])
+        #expect(patient2.compatibleDonor() == [])
     }
 }

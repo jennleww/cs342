@@ -3,7 +3,7 @@ import Foundation
 struct Medication: Equatable {
     var date: Date
     var name: String
-    var dose: Double // Changed from Int to Double
+    var dose: Double 
     var route: String
     var frequency: Int
     var duration: Int
