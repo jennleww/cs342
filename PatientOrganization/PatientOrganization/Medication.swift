@@ -31,4 +31,8 @@ struct Medication: Equatable {
         }
         return Date() < endDate
     }
+    
+    mutating func extendDuration(_ amount: Int) {
+        duration += amount
+    }
 }

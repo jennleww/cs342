@@ -69,6 +69,7 @@ struct Patient {
     }
     
     
+    
     mutating func prescribeMed(_ medication: Medication) throws {
         if medications.contains(where: { $0.name == medication.name }) {
             throw PrescriptionError.duplicateMedication

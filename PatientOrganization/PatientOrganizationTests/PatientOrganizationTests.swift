@@ -17,7 +17,7 @@ struct PatientOrganizationTests {
         let component = DateComponents(year: 2021, month: 5, day: 8, hour: 9, minute: 30)
         guard let med1date = calendar.date(from: component) else { return }
 
-        let medication1 = Medication(date: med1date, name: "Aspirin", dose: 81, route: "by mouth", frequency: 1, duration: 60)
+        var medication1 = Medication(date: med1date, name: "Aspirin", dose: 81, route: "by mouth", frequency: 1, duration: 60)
         let medication2 = Medication(date: Date(), name: "Aspirin", dose: 25, route: "by mouth", frequency: 3, duration: 20)
 
         #expect(medication1.name == "Aspirin")
@@ -26,6 +26,8 @@ struct PatientOrganizationTests {
         #expect(medication1.route == "by mouth")
         #expect(medication1.frequency == 1)
         #expect(medication1.duration == 60)
+        medication1.extendDuration(10)
+        #expect(medication1.duration == 70)
     }
 
     @Test func testMedicationIsCurrent() async throws {
@@ -126,6 +128,8 @@ struct PatientOrganizationTests {
         
         // Test specifying route
         #expect(patient.specifyRoute("by mouth") == [medication1, medication2])
+        
+        
     }
 
     // Patient Blood Type Compatibility Tests

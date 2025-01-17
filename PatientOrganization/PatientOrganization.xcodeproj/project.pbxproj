@@ -29,9 +29,30 @@
 		061A65192D3A057600ED317E /* PatientOrganizationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatientOrganizationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		061A65422D3A15A300ED317E /* Exceptions for "PatientOrganization" folder in "PatientOrganization" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				README.txt,
+			);
+			target = 061A64FE2D3A057400ED317E /* PatientOrganization */;
+		};
+		061A65432D3A15A300ED317E /* Exceptions for "PatientOrganization" folder in "PatientOrganizationTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				README.txt,
+			);
+			target = 061A650E2D3A057600ED317E /* PatientOrganizationTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		061A65012D3A057400ED317E /* PatientOrganization */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				061A65422D3A15A300ED317E /* Exceptions for "PatientOrganization" folder in "PatientOrganization" target */,
+				061A65432D3A15A300ED317E /* Exceptions for "PatientOrganization" folder in "PatientOrganizationTests" target */,
+			);
 			path = PatientOrganization;
 			sourceTree = "<group>";
 		};
