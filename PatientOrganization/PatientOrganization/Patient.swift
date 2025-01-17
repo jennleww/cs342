@@ -2,9 +2,6 @@
 //  Patient.swift
 //  PatientOrganization
 //
-//  Created by Jennifer Lew on 1/16/25.
-//
-
 import Foundation
 
 enum PrescriptionError: Error {
@@ -33,6 +30,7 @@ struct Patient {
         self.sex = sex
     }
     
+    // Calculate age of patient
     func age() -> Int {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year], from: dateOfBirth, to: Date())
@@ -43,6 +41,7 @@ struct Patient {
         "\(lastName), \(firstName) (\(age()))"
     }
     
+    // Returns active medication and sorts by date
     func currentMed() -> [Medication] {
         return medications
             .filter { $0.isCurrent() }
@@ -60,6 +59,7 @@ struct Patient {
         return kgweight / pow(height / 100, 2)// assume height in cm
     }
     
+    // Retrives raw string of blood type
     func getBloodType() -> String {
         if let bloodType = bloodType {
             return bloodType.description
@@ -69,7 +69,8 @@ struct Patient {
     }
     
     
-    
+    // Adds new medication to list of medication
+    // Throws error if attempt to prescribe duplicate medication
     mutating func prescribeMed(_ medication: Medication) throws {
         if medications.contains(where: { $0.name == medication.name }) {
             throw PrescriptionError.duplicateMedication
@@ -78,11 +79,14 @@ struct Patient {
         medications.append(medication)
     }
     
+    // Returns medication with specified route
     func specifyRoute(_ route: String) -> [Medication] {
         
         medications.filter { $0.route.caseInsensitiveCompare(route) == .orderedSame }
     }
     
+    
+    // Returns list of blood types compatible with patient bloodtype. If unknown, return empty array
     func compatibleDonor() -> [BloodType] {
         switch bloodType {
             case .ABPos:

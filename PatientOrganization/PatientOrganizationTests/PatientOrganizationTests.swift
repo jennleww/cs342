@@ -1,9 +1,4 @@
-//
-//  A1Tests.swift
-//  A1Tests
-//
-//  Created by Jennifer Lew on 1/13/25.
-//
+
 
 import Testing
 import Foundation

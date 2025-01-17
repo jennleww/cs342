@@ -1,9 +1,4 @@
-//
-//  ContentView.swift
-//  PatientOrganization
-//
-//  Created by Jennifer Lew on 1/16/25.
-//
+
 
 import SwiftUI
 
