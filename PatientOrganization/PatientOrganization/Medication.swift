@@ -24,6 +24,7 @@ struct Medication: Equatable {
         self.duration = duration
     }
 
+    // Utilized guard let to ensure that end date is successfully calculated before proceeding 
     func isCurrent() -> Bool {
         let calendar = Calendar.current
         guard let endDate = calendar.date(byAdding: .day, value: duration, to: date) else {
@@ -32,6 +33,7 @@ struct Medication: Equatable {
         return Date() < endDate
     }
     
+    // Utilized mutating function to modified propoerties of medication struct
     mutating func extendDuration(_ amount: Int) {
         duration += amount
     }

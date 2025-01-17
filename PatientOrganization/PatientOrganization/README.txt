@@ -22,6 +22,7 @@ This Swift program allows you to manage patients and their medications effective
   - Filter medications based on administration routes (e.g., "by mouth").
   - Check which medications are currently active and expired.
   - Handle errors for duplicate medication prescriptions.
+  - Extend the duration of medication
 
 - **Blood Type Compatibility**:
   - Determine blood types that a patient can safely receive in a transfusion.
