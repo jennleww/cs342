@@ -8,7 +8,7 @@
 # Patient & Medication Management System
 
 ## Description
-This Swift program allows you to manage patients and their medications effectively. It includes features such as tracking patient information, managing prescribed medications, checking medication schedules, and determining blood type compatibility for transfusions.
+This Swift program allows you to manage patients and their medications effectively. It includes features such as tracking patient information, managing prescribed medications, and determining blood type compatibility for transfusions.
 
 ## Features
 - **Patient Management**:
